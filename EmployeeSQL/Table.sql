@@ -18,7 +18,7 @@ select * from departments;
 -- Create dept_emp table
 
 CREATE TABLE dept_emp (
-      Debtemp_no INTEGER NOT NULL,
+      Deptemp_no INTEGER NOT NULL,
 	  dept_no VARCHAR(30) NOT NULL,
 	FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );

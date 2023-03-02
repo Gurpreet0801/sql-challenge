@@ -1,11 +1,7 @@
 
 -- 1. List the employee number, last name, first name, sex, and salary of each employee.
 
-Select employees.emp_no, 
-employees.last_name,
-employees.first_name,
-employees.sex,
-salaries.salary
+Select employees.emp_no,employees.last_name,employees.first_name,employees.sex,salaries.salary
 From employees
 Left Join salaries
 on employees.emp_no = salaries.emp_no
@@ -14,20 +10,14 @@ Order by emp_no;
 -- 2. List the first name, last name and hire date for the employees whon were hired
 -- in 1986.
 
-Select employees.first_name,
-employees.last_name,
-employees.hire_date
+Select employees.first_name,employees.last_name,employees.hire_date
 from employees
 where hire_date between '1986-01-01' and '1986-12-31';
 
 -- 3. List the manager of each department along with their department number,
 -- department name, employee number, last name and first name.
 
-SELECT dept_manager.dept_no, 
-departments.dept_name,
-dept_manager.emp_no,
-employees.last_name, 
-employees.first_name
+SELECT dept_manager.dept_no,departments.dept_name,dept_manager.emp_no,employees.last_name,employees.first_name
 FROM dept_manager
 LEFT JOIN departments
 ON dept_manager.dept_no = departments.dept_no
@@ -39,13 +29,9 @@ ORDER BY emp_no
 -- number, last name, first name, and department name.
 
 SELECT
-employees.emp_no,
-employees.last_name,
-employees.first_name,
-dept_emp.dept_no,
-departments.dept_name
+employees.emp_no,employees.last_name,employees.first_name,dept_emp.dept_no,departments.dept_name
 FROM employees 
-INNER JOIN dept_emp ON employees.emp_no=dept_emp.Debtemp_no
+INNER JOIN dept_emp ON employees.emp_no=dept_emp.Deptemp_no
 INNER JOIN departments ON departments.dept_no=dept_emp.dept_no
 order by emp_no;
 
@@ -58,13 +44,10 @@ WHERE first_name = 'Hercules' AND last_name like 'B%';
 -- employee number, last name, first name, and department name.
 
 SELECT 
-employees.emp_no, 
-employees.last_name, 
-employees.first_name,
-dept_emp.dept_no
+employees.emp_no,employees.last_name,employees.first_name,dept_emp.dept_no
 FROM employees 
 LEFT JOIN dept_emp 
-ON employees.emp_no=dept_emp.Debtemp_no
+ON employees.emp_no=dept_emp.Deptemp_no
 INNER JOIN departments 
 ON departments.dept_no=dept_emp.dept_no
 WHERE departments.dept_name='Sales';
@@ -73,13 +56,10 @@ WHERE departments.dept_name='Sales';
 --employee number, last name, first name, and department name.
 
 SELECT 
-employees.emp_no, 
-employees.last_name, 
-employees.first_name,
-dept_emp.dept_no
+employees.emp_no,employees.last_name,employees.first_name,dept_emp.dept_no
 FROM employees 
 LEFT JOIN dept_emp 
-ON employees.emp_no=dept_emp.Debtemp_no
+ON employees.emp_no=dept_emp.Deptemp_no
 INNER JOIN departments 
 ON departments.dept_no=dept_emp.dept_no
 WHERE departments.dept_name in ('Sales', 'Development')
@@ -91,3 +71,57 @@ SELECT last_name, COUNT(*) AS freq_count
 FROM employees
 GROUP BY last_name
 ORDER BY freq_count DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
